@@ -4,6 +4,7 @@ Plug 'SirVer/ultisnips'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
+Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
 "Plug 'Shougo/deoplete.nvim'
 "Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -51,4 +52,17 @@ silent! nmap <F2> :NERDTreeToggle<CR>
 silent! map <F3> :NERDTreeFind<CR>
 silent! map <F4> :TagbarToggle<CR>
 
+" Solve conflicts between ycm and ultisnip
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 set encoding=utf-8

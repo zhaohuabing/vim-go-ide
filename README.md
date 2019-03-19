@@ -10,3 +10,6 @@ open vim and run
 ```
 :PlugInstall
 ```
+
+# Supported languages
+Go,Java

@@ -1,4 +1,5 @@
 # vim-go-ide
+
 First fetch and install vim-plug
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -12,4 +13,10 @@ open vim and run
 ```
 
 # Supported languages
-Go,Java
+
+Go, Java
+
+# Dependencies
+
+* Gotags https://github.com/jstemmer/gotags
+* Ctags https://github.com/universal-ctags/ctags

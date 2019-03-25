@@ -40,7 +40,7 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-  
+
 " deoplete.nvim recommend
 set completeopt+=noselect
 
@@ -69,17 +69,31 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 set encoding=utf-8
 
+" configruation for Java
 " javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " To enable smart (trying to guess import option) inserting class imports with F4, add:
-nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+"nmap <F8> <Plug>(JavaComplete-Imports-AddSmart)
+"imap <F8> <Plug>(JavaComplete-Imports-AddSmart)
 "To enable usual (will ask for import option) inserting class imports with F5, add:
-nmap <F5> <Plug>(JavaComplete-Imports-Add)
-imap <F5> <Plug>(JavaComplete-Imports-Add)
+"nmap <F5> <Plug>(JavaComplete-Imports-Add)
+"imap <F5> <Plug>(JavaComplete-Imports-Add)
 "To add all missing imports with F6:
 nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
 "To remove all unused imports with F7:
 nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+map <F5> :w<CR> :call CompileJava()<CR>
+function CompileJava()
+    let mp = &makeprg
+    let ef = &errorformat
+    let exeFile = expand("%:t")
+    setlocal makeprg=javac\ %
+    set efm=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+    silent make %
+    copen
+    let &makeprg = mp
+    let &errorformat = ef
+endfunction

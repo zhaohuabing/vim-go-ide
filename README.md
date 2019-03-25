@@ -20,3 +20,9 @@ Go, Java
 
 * Gotags https://github.com/jstemmer/gotags
 * Ctags https://github.com/universal-ctags/ctags
+
+# keys
+<F2> Toggle Dir Tree
+<F3> Goto Dir Tree
+<F4> Toggle Tag Tree 
+More: https://github.com/fatih/vim-go

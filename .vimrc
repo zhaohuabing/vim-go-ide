@@ -8,10 +8,19 @@ Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --go-completer' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-glaive'
+Plug 'honza/vim-snippets'
+Plug 'apalmer1377/factorus'
 "Plug 'Shougo/deoplete.nvim'
 "Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
-
+" the glaive#Install() should go after the "call vundle#end()"
+call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+Glaive codefmt plugin[mappings]
+Glaive codefmt google_java_executable="java -jar /home/huabing/tools/google-java-format-1.7-all-deps.jar"
 " Tagbar"
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -97,3 +106,7 @@ function CompileJava()
     let &makeprg = mp
     let &errorformat = ef
 endfunction
+
+
+set tags=./tags,tags,/usr/lib/jvm/openjdk-8/tags;
+
